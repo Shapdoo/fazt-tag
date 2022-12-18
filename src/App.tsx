@@ -5,18 +5,24 @@ import { Keyword } from "./models/interfaces";
 
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
+import KeywordArea from "./components/KeywordArea/KeywordArea";
 
 function App() {
   const [keywords, setKeywords] = useState<AppState["keywords"]>([]);
-  const [newFlag, setNewFlag] = useState(true);
 
   const handleNewKeyword = (keyword: Keyword) => {
     setKeywords([...keywords, keyword]);
   };
 
-  const handleNewFlag = (keyword: Keyword) => {
-    setNewFlag(!newFlag);
-    keyword.flag = newFlag;
+  const handleNewFlag = (id: string) => {
+    //Find the keyword to update
+    const currentKeywordIndex = keywords.findIndex((keyword: Keyword) => keyword.id === id)
+    //updating the current keyword flag
+    const updatedKewyord = { ...keywords[currentKeywordIndex], flag: !keywords[currentKeywordIndex].flag }
+    //updating the array of keyword
+    const newKeywords = [ ...keywords ]
+    newKeywords[currentKeywordIndex] = updatedKewyord
+    setKeywords(newKeywords) 
   };
 
   const arrayIsEmpty: boolean = keywords.length === 0;
@@ -34,7 +40,9 @@ function App() {
           <List keywords={keywords} handleNewFlag={handleNewFlag} />
         )}
       </main>
-      <div className="keywords-set"></div>
+      <div className="keywords-set contenedor">
+          <KeywordArea />
+      </div>
       <footer className="footer">{/* footer */}</footer>
     </>
   );

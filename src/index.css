@@ -218,3 +218,70 @@ img {
   align-items: center;
   gap: 0.5rem;
 }
+
+/* Keyword Area */
+.keywords-set {
+  margin-top: var(--gap);
+  background-color: var(--light);
+  padding: 2rem;
+  border-radius: 2.5rem;
+  box-shadow: var(--mShadow);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  max-width: 80rem;
+}
+
+/* switch control */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 6rem;
+  height: 3.4rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: #ccc;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 2.6rem;
+  width: 2.6rem;
+  left: 0.4rem;
+  bottom: 0.4rem;
+  background-color: var(--white);
+  transition: 0.2s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(2.6rem);
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+.slider.rounded {
+  border-radius: 3.4rem;
+}
+
+.slider.rounded:before {
+  border-radius: 50%;
+}
+
+/* keywords-area */

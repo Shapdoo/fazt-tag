@@ -12,7 +12,7 @@ function List({ keywords, handleNewFlag }: ListProps) {
               id={keyword.id}
               type="checkbox"
               checked={keyword.flag}
-              onChange={() => handleNewFlag(keyword)}
+              onChange={() => handleNewFlag(keyword.id)}
             />
           </div>
         );
