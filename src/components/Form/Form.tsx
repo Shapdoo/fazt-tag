@@ -5,6 +5,8 @@ import Alert from "../Alert/Alert";
 import { Keyword } from "../../models/interfaces";
 import { generateId } from "../../helpers/utils";
 
+import Button from '../Button/Button';
+
 const defaultStateKeyword: Keyword = {
   name: "",
   hashtagKeyword: "",
@@ -13,8 +15,7 @@ const defaultStateKeyword: Keyword = {
 };
 
 function Form({ setKeywords }: FromProps) {
-  const [keyword, setKeyword] =
-    useState<FormState["keyword"]>(defaultStateKeyword);
+  const [keyword, setKeyword] = useState<FormState["keyword"]>(defaultStateKeyword);
   const [validation, setValidation] = useState<FormState["error"]>(false);
 
   const handleSetKeyword = (e: ChangeEvent<HTMLInputElement>) => {
@@ -61,9 +62,7 @@ function Form({ setKeywords }: FromProps) {
         </div>
 
         <div className="add-keyword">
-          <button className="btn-icon btn-primary shadow">
-            <span className="material-symbols-outlined">add</span>
-          </button>
+          <Button icon="add"/>
         </div>
       </div>
     </form>
