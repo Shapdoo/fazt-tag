@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import Switch from "../Switch/Switch";
+import { KeywordAreaProps } from "./KeywordArea.interface";
 
-export default function KeywordArea() {
+export default function KeywordArea({ keywords }: KeywordAreaProps) {
   const [isToggled, setIsToggled] = useState(false);
 
   return (

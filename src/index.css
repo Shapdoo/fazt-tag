@@ -282,7 +282,7 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider {
-  background-color: var(--primary);
+  background-color: var(--succes);
 }
 
 .slider.rounded {

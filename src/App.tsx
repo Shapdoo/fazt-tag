@@ -26,7 +26,7 @@ function App() {
   };
 
   const arrayIsEmpty: boolean = keywords.length === 0;
-
+  
   return (
     <>
       <Header setKeywords={handleNewKeyword} />
@@ -41,7 +41,7 @@ function App() {
         )}
       </main>
       <div className="keywords-set contenedor">
-          <KeywordArea />
+          <KeywordArea keywords={keywords}/>
       </div>
       <footer className="footer">{/* footer */}</footer>
     </>
