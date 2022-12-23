@@ -103,7 +103,6 @@ img {
 .header {
   background-color: var(--primary);
   padding: 0 1rem;
-  border-radius: 0 0 4rem 4rem;
 }
 
 @media (min-width: 768px) {
