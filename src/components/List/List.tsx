@@ -1,5 +1,4 @@
 import { ListProps } from "./List.interface";
-import Button from "../Button/Button";
 
 function List({ keywords, handleNewFlag, handleDelete }: ListProps) {
   return (
