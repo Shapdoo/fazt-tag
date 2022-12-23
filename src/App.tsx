@@ -6,10 +6,11 @@ import { Keyword } from "./models/interfaces";
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import KeywordArea from "./components/KeywordArea/KeywordArea";
+import Footer from './components/Footer/Footer';
 
 function App() {
   //TODO solcionar no hardcodear el LS en el state
-  const [keywords, setKeywords] = useState<AppState["keywords"]>(JSON.parse(localStorage.getItem("keywords-app-data")!));
+  const [keywords, setKeywords] = useState<AppState["keywords"]>(JSON.parse(localStorage.getItem("keywords-app-data") ?? "[]"));
   const [selectedKeywords, setSelectedKeywords] = useState<
     AppState["selectedKeywords"]
   >([]);
@@ -59,7 +60,9 @@ function App() {
       <div className="keywords-set contenedor">
         <KeywordArea selectedKeywords={selectedKeywords} />
       </div>
-      <footer className="footer">{/* footer */}</footer>
+      <footer className="footer">
+        <Footer />
+      </footer>
     </>
   );
 }

@@ -181,7 +181,6 @@ textarea {
 .alert {
   padding: 0.5rem 2rem;
   font-size: 1.5rem;
-  background-color: var(--warn);
   margin-bottom: 2rem;
   border-radius: 1rem;
 }
@@ -189,6 +188,13 @@ textarea {
 .error-message {
   color: var(--white);
   font-weight: bold;
+  background-color: var(--warn);
+}
+
+.info-message {
+  color: var(--white);
+  font-weight: bold;
+  background-color: var(--succes);
 }
 
 /* Main */
@@ -306,3 +312,50 @@ input:checked + .slider {
   align-items: center;
 }
 
+
+/* Footer */
+.footer{
+  padding: calc(var(--gap) - 2rem);
+  background-color: var(--primary);
+  color: var(--white);
+  margin-top: var(--gap);
+}
+
+.coffee{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.coffee-title{
+  margin-bottom: 2rem;
+}
+
+.btn-coffee{
+  background-color: var(--secondary);
+  text-decoration: none;
+  color: var(--white);
+  padding: 1.25rem 1.5rem;
+  font-size: 2rem;
+  border-radius: var(--gap);
+  font-weight: bold;
+  box-shadow: var(--mShadow);
+}
+
+@media (min-width: 768px){
+  .coffee{
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .coffee-title{
+    margin-bottom: unset;
+  }
+}
+
+/* SWAL CSS MODIFY */
+.swal2-html-container{
+  font-size: 2.5rem;
+}

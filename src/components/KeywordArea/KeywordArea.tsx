@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import Switch from "../Switch/Switch";
+import Swal, { SweetAlertOptions } from "sweetalert2";
+
 import { KeywordAreaProps, KeywordAreaState } from "./KeywordArea.interface";
+import { config } from "../../helpers/utils";
+import Alert from "../Alert/Alert";
 
 export default function KeywordArea({ selectedKeywords }: KeywordAreaProps) {
   const [isToggled, setIsToggled] = useState<KeywordAreaState["isToggled"]>(false);
@@ -26,7 +30,12 @@ export default function KeywordArea({ selectedKeywords }: KeywordAreaProps) {
     selectedKeywords.map((keyword) => keyword.hashtagKeyword).join(' ');
 
   const copyToClipboard = () => {
+    swalFire(config)
     navigator.clipboard.writeText(keywords)
+  }
+
+  const swalFire = (config: SweetAlertOptions) => {
+    Swal.fire(config)
   }
 
   return (
@@ -41,6 +50,7 @@ export default function KeywordArea({ selectedKeywords }: KeywordAreaProps) {
         <Button icon="content_copy" handleAction={copyToClipboard}/>
       </div>
       <div className="keywords-selected">
+        { isToggled && <Alert alertType="info-message">Now your keywords have #! 😎</Alert> }
         <textarea
           rows={5}
           readOnly={true}
