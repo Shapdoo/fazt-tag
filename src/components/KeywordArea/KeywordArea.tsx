@@ -25,17 +25,20 @@ export default function KeywordArea({ selectedKeywords }: KeywordAreaProps) {
   const keywordHashtagNames = () =>
     selectedKeywords.map((keyword) => keyword.hashtagKeyword).join(' ');
 
-  
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(keywords)
+  }
+
   return (
     <div className="">
-      <h2 className="keywords-container-title">COPY & PUBLISH</h2>
+      <h2 className="keywords-container-title">🌈 COPY & PUBLISH</h2>
       <div className="keywords-switch-copy">
         <Switch
           rounded={true}
           isToggled={isToggled}
           onHandleToggled={() => setIsToggled(!isToggled)}
         />
-        <Button icon="content_copy" />
+        <Button icon="content_copy" handleAction={copyToClipboard}/>
       </div>
       <div className="keywords-selected">
         <textarea

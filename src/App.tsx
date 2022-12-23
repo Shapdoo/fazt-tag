@@ -8,7 +8,8 @@ import List from "./components/List/List";
 import KeywordArea from "./components/KeywordArea/KeywordArea";
 
 function App() {
-  const [keywords, setKeywords] = useState<AppState["keywords"]>([]);
+  //TODO solcionar no hardcodear el LS en el state
+  const [keywords, setKeywords] = useState<AppState["keywords"]>(JSON.parse(localStorage.getItem("keywords-app-data")!));
   const [selectedKeywords, setSelectedKeywords] = useState<
     AppState["selectedKeywords"]
   >([]);
@@ -35,19 +36,11 @@ function App() {
 
   const arrayIsEmpty: boolean = keywords.length === 0;
 
-  //Select keywords
-  useEffect(() => {
-    keywords.map((keyword) => {
-      if (keyword.flag === true) {
-        setSelectedKeywords([...selectedKeywords, keyword]);
-      }
-    });
-  }, [keywords]);
-
-  //deselect keywords
+  //Select keywords and deselected keywords and localstorage
   useEffect(() => {
     const newKeywords = keywords.filter((keyword) => keyword.flag !== false);
     setSelectedKeywords(newKeywords);
+    localStorage.setItem("keywords-app-data", JSON.stringify(keywords));
   }, [keywords]);
 
   return (
