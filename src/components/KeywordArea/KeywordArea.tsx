@@ -20,7 +20,12 @@ export default function KeywordArea({ selectedKeywords }: KeywordAreaProps) {
   }, [isToggled]);
 
   useEffect( () => {
-    setKeywords(keywordNames());
+    if(isToggled){
+      setKeywords(keywordHashtagNames());
+      return
+    }
+
+    setKeywords(keywordNames())
   }, [selectedKeywords])
 
   const keywordNames = () => 
