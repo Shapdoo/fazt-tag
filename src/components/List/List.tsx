@@ -1,4 +1,5 @@
 import { ListProps } from "./List.interface";
+import Button from '../Button/Button';
 
 function List({ keywords, handleNewFlag }: ListProps) {
 
@@ -14,6 +15,7 @@ function List({ keywords, handleNewFlag }: ListProps) {
               checked={keyword.flag}
               onChange={() => handleNewFlag(keyword.id)}
             />
+            <Button icon="remove" type="btn-warn" shadow={false}/>
           </div>
         );
       })}

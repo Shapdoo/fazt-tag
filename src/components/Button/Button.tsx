@@ -1,8 +1,8 @@
 import { ButtonProps } from "./Button.interfaces";
 
-export default function Button({icon, handleAction}: ButtonProps) {
+export default function Button({icon, handleAction, shadow=true, type="btn-primary"}: ButtonProps) {
   return (
-    <button className="btn-icon btn-primary shadow" onClick={() => handleAction?.()}>
+    <button className={`btn-icon ${type} ${shadow ? "shadow" : "" }`} onClick={() => handleAction?.()}>
       <span className="material-symbols-outlined">{ icon }</span>
     </button>
   );

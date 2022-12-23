@@ -81,6 +81,11 @@ img {
   background-color: var(--primary);
 }
 
+.btn-warn{
+  color: var(--white);
+  background-color: var(--warn);
+}
+
 .btn-icon {
   border: unset;
   padding: 0.8rem;
@@ -232,7 +237,8 @@ textarea {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.95rem;
+  margin-bottom: 1rem;
 }
 
 /* Keyword Area */

@@ -1,4 +1,6 @@
 export interface ButtonProps {
-    icon: string,
+    icon: string
+    shadow?: boolean
+    type?: string
     handleAction?: () => void
 }
