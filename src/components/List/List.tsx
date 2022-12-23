@@ -1,8 +1,7 @@
 import { ListProps } from "./List.interface";
-import Button from '../Button/Button';
+import Button from "../Button/Button";
 
-function List({ keywords, handleNewFlag }: ListProps) {
-
+function List({ keywords, handleNewFlag, handleDelete }: ListProps) {
   return (
     <div className="list-keywords">
       {keywords.map((keyword) => {
@@ -15,7 +14,13 @@ function List({ keywords, handleNewFlag }: ListProps) {
               checked={keyword.flag}
               onChange={() => handleNewFlag(keyword.id)}
             />
-            <Button icon="remove" type="btn-warn" shadow={false}/>
+
+            <button
+              className="btn-icon btn-warn"
+              onClick={() => handleDelete(keyword.id)}
+            >
+              <span className="material-symbols-outlined">remove</span>
+            </button>
           </div>
         );
       })}

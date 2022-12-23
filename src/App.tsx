@@ -35,6 +35,17 @@ function App() {
     setKeywords(newKeywords);
   };
 
+  const handleDelete = (id: string) => {
+    //Find the keyword to update
+    const keywordsUpdated = keywords.filter(
+      (keyword: Keyword) => keyword.id !== id
+    );
+
+    setKeywords(keywordsUpdated)
+    
+  };
+
+
   const arrayIsEmpty: boolean = keywords.length === 0;
 
   //Select keywords and deselected keywords and localstorage
@@ -54,7 +65,7 @@ function App() {
             : "✨ Select the keywords that you want to copy!"}
         </h2>
         {!arrayIsEmpty && (
-          <List keywords={keywords} handleNewFlag={handleNewFlag} />
+          <List keywords={keywords} handleNewFlag={handleNewFlag} handleDelete={handleDelete}/>
         )}
       </main>
       <div className="keywords-set contenedor">
