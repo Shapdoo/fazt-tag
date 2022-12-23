@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { AppState } from "./App.interfaces";
 import { Keyword } from "./models/interfaces";
@@ -9,6 +9,9 @@ import KeywordArea from "./components/KeywordArea/KeywordArea";
 
 function App() {
   const [keywords, setKeywords] = useState<AppState["keywords"]>([]);
+  const [selectedKeywords, setSelectedKeywords] = useState<
+    AppState["selectedKeywords"]
+  >([]);
 
   const handleNewKeyword = (keyword: Keyword) => {
     setKeywords([...keywords, keyword]);
@@ -16,17 +19,37 @@ function App() {
 
   const handleNewFlag = (id: string) => {
     //Find the keyword to update
-    const currentKeywordIndex = keywords.findIndex((keyword: Keyword) => keyword.id === id)
+    const currentKeywordIndex = keywords.findIndex(
+      (keyword: Keyword) => keyword.id === id
+    );
     //updating the current keyword flag
-    const updatedKewyord = { ...keywords[currentKeywordIndex], flag: !keywords[currentKeywordIndex].flag }
+    const updatedKewyord = {
+      ...keywords[currentKeywordIndex],
+      flag: !keywords[currentKeywordIndex].flag,
+    };
     //updating the array of keyword
-    const newKeywords = [ ...keywords ]
-    newKeywords[currentKeywordIndex] = updatedKewyord
-    setKeywords(newKeywords) 
+    const newKeywords = [...keywords];
+    newKeywords[currentKeywordIndex] = updatedKewyord;
+    setKeywords(newKeywords);
   };
 
   const arrayIsEmpty: boolean = keywords.length === 0;
-  
+
+  //Select keywords
+  useEffect(() => {
+    keywords.map((keyword) => {
+      if (keyword.flag === true) {
+        setSelectedKeywords([...selectedKeywords, keyword]);
+      }
+    });
+  }, [keywords]);
+
+  //deselect keywords
+  useEffect(() => {
+    const newKeywords = keywords.filter((keyword) => keyword.flag !== false);
+    setSelectedKeywords(newKeywords);
+  }, [keywords]);
+
   return (
     <>
       <Header setKeywords={handleNewKeyword} />
@@ -41,7 +64,7 @@ function App() {
         )}
       </main>
       <div className="keywords-set contenedor">
-          <KeywordArea keywords={keywords}/>
+        <KeywordArea selectedKeywords={selectedKeywords} />
       </div>
       <footer className="footer">{/* footer */}</footer>
     </>

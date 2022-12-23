@@ -33,7 +33,6 @@ function Form({ setKeywords }: FromProps) {
     e.preventDefault();
 
     if (keyword.name === "") {
-      console.log("error displayed");
       setValidation(true);
       return;
     }
@@ -46,7 +45,7 @@ function Form({ setKeywords }: FromProps) {
   return (
     <form id="form" onSubmit={handleSubmit}>
       {validation && (
-        <Alert alertType={"error-message"}>
+        <Alert alertType="error-message">
           Yo need to enter some keywords right here! 👀
         </Alert>
       )}

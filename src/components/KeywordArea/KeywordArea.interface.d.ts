@@ -1,5 +1,10 @@
 import { Keyword } from "../../models/interfaces";
 
+export interface KeywordAreaState{
+    isToggled: boolean
+    keywords: string
+}
+
 export interface KeywordAreaProps{
-    keywords: Keyword[]
+    selectedKeywords: Keyword[]
 }

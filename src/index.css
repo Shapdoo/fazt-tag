@@ -30,13 +30,7 @@ body {
 }
 
 /* GLOBAL STYLES */
-.contenedor {
-  /* no va a dejar que pase de los 1200px */
-  max-width: 120rem;
-  /* dentro de esos 1200px va a tomar el 90% */
-  width: 90%;
-  margin: 0 auto;
-}
+
 
 h1,
 h2,
@@ -65,6 +59,14 @@ img {
 }
 
 /* UTILITIES */
+.contenedor {
+  /* no va a dejar que pase de los 1200px */
+  max-width: 120rem;
+  /* dentro de esos 1200px va a tomar el 90% */
+  width: 90%;
+  margin: 0 auto;
+}
+
 .text-center {
   text-align: center;
 }
@@ -217,8 +219,8 @@ textarea {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: flex-start;
-  height: 40rem;
   overflow-x: auto;
+  max-height: 40rem;
 }
 
 .keyword {
