@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import Switch from "../Switch/Switch";
-import Swal, { SweetAlertOptions } from "sweetalert2";
+import Swal from "sweetalert2";
 
 import { KeywordAreaProps, KeywordAreaState } from "./KeywordArea.interface";
 import { config } from "../../helpers/utils";
@@ -35,12 +35,8 @@ export default function KeywordArea({ selectedKeywords }: KeywordAreaProps) {
     selectedKeywords.map((keyword) => keyword.hashtagKeyword).join(' ');
 
   const copyToClipboard = () => {
-    swalFire(config)
-    navigator.clipboard.writeText(keywords)
-  }
-
-  const swalFire = (config: SweetAlertOptions) => {
     Swal.fire(config)
+    navigator.clipboard.writeText(keywords)
   }
 
   return (
