@@ -60,6 +60,11 @@ img {
   height: auto;
 }
 
+a{
+  display: block;
+  text-decoration: none;
+}
+
 /* UTILITIES */
 .contenedor {
   /* no va a dejar que pase de los 1200px */
@@ -351,6 +356,7 @@ input:checked + .slider {
     text-align: left;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
   }
 
   .footer-content:nth-child(1) {
@@ -362,8 +368,7 @@ input:checked + .slider {
 }
 
 .support,
-.socials,
-.brand {
+.socials {
   margin-bottom: 2rem;
 }
 
@@ -390,11 +395,14 @@ input:checked + .slider {
   font-size: 1.8rem;
   margin-top: 1rem;
   padding: 1rem;
+  display: grid;
+  place-items: center;
 }
 
 @media (min-width: 768px) {
   .wrapper-button {
     padding-left: 0;
+    place-items: flex-start;;
   }
 }
 
