@@ -217,9 +217,20 @@ textarea:focus {
   background-color: var(--succes);
 }
 
+/* Category */
+.categories{
+  margin-top: calc(var(--gap) * 3.5);
+  box-shadow: var(--mShadow);
+  padding: 2rem;
+  font-size: 2rem;
+  border-radius: 2.5rem;
+  background-color: var(--white);
+}
+
+
 /* Main */
 .keywords-container {
-  margin-top: calc(var(--gap) * 3);
+  margin-top: 4.5rem;
   box-shadow: var(--mShadow);
   padding: 2rem;
   font-size: 2rem;

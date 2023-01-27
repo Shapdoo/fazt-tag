@@ -6,11 +6,14 @@ import { Keyword } from "./models/interfaces";
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import KeywordArea from "./components/KeywordArea/KeywordArea";
-import Footer from './components/Footer/Footer';
+import Footer from "./components/Footer/Footer";
+import Filter from './components/Filter/Filter';
 
 function App() {
   //TODO solcionar no hardcodear el LS en el state
-  const [keywords, setKeywords] = useState<AppState["keywords"]>(JSON.parse(localStorage.getItem("keywords-app-data") ?? "[]"));
+  const [keywords, setKeywords] = useState<AppState["keywords"]>(
+    JSON.parse(localStorage.getItem("keywords-app-data") ?? "[]")
+  );
   const [selectedKeywords, setSelectedKeywords] = useState<
     AppState["selectedKeywords"]
   >([]);
@@ -41,10 +44,8 @@ function App() {
       (keyword: Keyword) => keyword.id !== id
     );
 
-    setKeywords(keywordsUpdated)
-    
+    setKeywords(keywordsUpdated);
   };
-
 
   const arrayIsEmpty: boolean = keywords.length === 0;
 
@@ -58,6 +59,11 @@ function App() {
   return (
     <>
       <Header setKeywords={handleNewKeyword} />
+      
+      <section className="categories contenedor">
+        <Filter />
+      </section>
+
       <main className="keywords-container contenedor">
         <h2 className="keywords-container-title">
           {arrayIsEmpty
@@ -65,12 +71,18 @@ function App() {
             : "✨ Select the keywords that you want to copy!"}
         </h2>
         {!arrayIsEmpty && (
-          <List keywords={keywords} handleNewFlag={handleNewFlag} handleDelete={handleDelete}/>
+          <List
+            keywords={keywords}
+            handleNewFlag={handleNewFlag}
+            handleDelete={handleDelete}
+          />
         )}
       </main>
-      <div className="keywords-set contenedor">
+
+      <section className="keywords-set contenedor">
         <KeywordArea selectedKeywords={selectedKeywords} />
-      </div>
+      </section>
+
       <footer className="footer">
         <Footer />
       </footer>
